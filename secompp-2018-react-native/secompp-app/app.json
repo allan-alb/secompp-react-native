@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "NomeDoProjeto",
-    "description": "This project is really great.",
-    "slug": "NomeDoProjeto",
+    "name": "SECOMPP 2018",
+    "description": "Aplication built at UNESP's SECOMPP2018 event",
+    "slug": "SECOMPP2018",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],

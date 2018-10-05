@@ -29,7 +29,7 @@ export default {
           shadowRadius: 3,
         },
         android: {
-
+            elevation: 4,
         },
       })
     }

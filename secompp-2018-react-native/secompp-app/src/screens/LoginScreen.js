@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import { View, TextInput, SafeAreaView, ImageBackground, TouchableHighlight } from 'react-native';
+import { 
+  View, 
+  TextInput, 
+  SafeAreaView, 
+  KeyboardAvoidingView, 
+  ImageBackground, 
+  TouchableHighlight } from 'react-native';
 import { Constants } from 'expo'
 
 import {
   LinearIcon,
   Logo,
   Text,
+  CustomInput,
 } from '../components';
 
 import Colors from '../theme/colors';
-import colors from '../theme/colors';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -27,21 +33,28 @@ class LoginScreen extends Component {
           style={{ width: '100%', height: '100%' }}>
           <SafeAreaView style= {{ 
             flex: 1, 
+            backgroundColor: 'rgba(51,51,51,0.33)',
             paddingTop: Constants.statusBarHeight,
             paddingHorizontal: 16 }}>
+            <KeyboardAvoidingView behavior="padding" style={{ flex:1, marginHorizontal: 16}}>
             <View style={{ alignItems: 'center', marginTop: 52 }}>
               <Logo color="white" style={{ width: 212, height: 52 }}/>
 
-              <Text fontWeight="light" color="white" style={{ textAlign: 'center', width: '90%' }}>Semana do curso de Ciência da Computação</Text>
+              <Text fontWeight="light" color="white" style={{ textAlign: 'center', width: '90%' }}>
+              Semana do curso de Ciência da Computação</Text>
             </View>
             
             <View style={{  flex: 1, justifyContent: 'center'}}>
-              <TextInput style={{ color: Colors.theme.primaryColor }}
+              <CustomInput style={{ color: Colors.theme.primaryColor }}
+                label="e-mail"
+                placeholder="usuario@email.com"
                 value={this.state.email}
                 onChangeText={(email) => this.setState({ email: email})}
               />
               
-              <TextInput style={{ color: Colors.theme.primaryColor }}
+              <CustomInput style={{ color: Colors.theme.primaryColor }}
+                label="senha"
+                placeholder="********"
                 value={this.state.password}
                 onChangeText={(password) => this.setState({ password: password})}
                 secureTextEntry={true}
@@ -50,9 +63,10 @@ class LoginScreen extends Component {
               <TouchableHighlight
                 onPress= {() => { this.props.navigation.navigate('DashboardTabs') }}
                 style={{
-                  backgroundColor: colors.theme.primaryColor,
+                  backgroundColor: Colors.theme.primaryColor,
                   alignItems: 'center',
                   paddingVertical: 16,
+                  borderRadius: 15,
                   margin: 14,
                 }}
               >
@@ -62,9 +76,11 @@ class LoginScreen extends Component {
 
               </TouchableHighlight>
 
-              <Text color="white" style={{ textAlign: 'center'}}>Para criar uma conta, <Text color={Colors.theme.primaryColor} 
+              <Text color="white" style={{ textAlign: 'center'}}>
+              Para criar uma conta, <Text color={Colors.theme.primaryColor} 
               fontWeight="bold" style={{ textDecorationLine: 'underline'}}>clique aqui</Text></Text>
             </View>
+            </KeyboardAvoidingView>
           </SafeAreaView>
         </ImageBackground>
     );

@@ -104,6 +104,6 @@ export default createStackNavigator({
     }),
   }),
 }, {
-  // initialRouteName: 'App',
+  initialRouteName: 'App',
   headerMode: 'none',
 })
